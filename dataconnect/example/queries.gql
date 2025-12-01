@@ -1,0 +1,35 @@
+mutation CreateElection($title: String!, $description: String!, $startDate: Timestamp!, $endDate: Timestamp!, $status: String!) @auth(level: USER) {
+  election_insert(data: {
+    title: $title,
+    description: $description,
+    startDate: $startDate,
+    endDate: $endDate,
+    status: $status,
+		creatorId_expr: "auth.uid"
+  })
+}
+
+query ListAvailableElections @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  elections(where: {status: {eq: "active"}}) {
+    id
+    title
+    description
+    startDate
+    endDate
+  }
+}
+
+mutation CastVote($electionId: UUID!, $positionId: UUID!, $candidateId: UUID!) @auth(level: USER) {
+  vote_insert(data: {
+    electionId: $electionId,
+    positionId: $positionId,
+    candidateId: $candidateId,
+		voterId_expr: "auth.uid"
+  })
+}
+
+query GetUserRole($id: UUID!) @auth(level: USER){
+  user(id: $id) {
+    role
+  }
+}

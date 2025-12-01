@@ -1,0 +1,41 @@
+type User @table {
+  email: String!
+  displayName: String!
+  role: String!
+  createdAt: Timestamp!
+  studentId: String
+  photoUrl: String
+}
+
+type Election @table {
+  title: String!
+  description: String!
+  startDate: Timestamp!
+  endDate: Timestamp!
+  status: String!
+  createdAt: Timestamp!
+  creator: User
+}
+
+type Position @table {
+  name: String!
+  description: String!
+  election: Election!
+  createdAt: Timestamp!
+}
+
+type Candidate @table {
+  name: String!
+  position: Position!
+  createdAt: Timestamp!
+  bio: String
+  imageUrl: String
+}
+
+type Vote @table(key: ["voter", "election", "position"]) {
+  voter: User!
+  candidate: Candidate!
+  position: Position!
+  election: Election!
+  createdAt: Timestamp!
+}
