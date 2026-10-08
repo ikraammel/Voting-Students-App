@@ -1,5 +1,26 @@
-# Vue 3 + Vite
+# Voting Students App
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Vue 3 application project for student voting.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Tech stack
+
+- JavaScript
+- Vue 3
+- Vite
+
+## Run locally
+
+```bash
+git clone https://github.com/ikraammel/Voting-Students-App.git
+cd Voting-Students-App
+npm install
+npm run dev
+```
+
+## About
+
+This repository is part of my software engineering portfolio. Explore the source code to see the implemented views, components, and functionality.
+
+## Author
+
+[Ikram El Houl](https://github.com/ikraammel)
